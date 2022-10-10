@@ -1,0 +1,4 @@
+logging:
+  config: classpath:logback.xml
+  level:
+    com.example.springboot01.api: trace
