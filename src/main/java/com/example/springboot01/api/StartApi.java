@@ -4,6 +4,7 @@ import com.example.springboot01.config.MicroServiceUrl;
 import com.example.springboot01.domain.User;
 import com.example.springboot01.utils.response.CommonResult;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -80,4 +81,17 @@ public class StartApi {
     public CommonResult getUser2(@RequestBody User user){
         return CommonResult.ok().setResult(user);
     }
+
+    @GetMapping("/handler")
+    public CommonResult getHandler(ModelMap map){
+        String globalAttr = (String) map.getAttribute("globalAttr");
+        return CommonResult.ok().setMsg(globalAttr);
+    }
+
+    @GetMapping("/nullPoint")
+    public CommonResult getPoint(){
+        User user = null;
+        return CommonResult.ok().setResult(user.age);
+    }
+
 }
