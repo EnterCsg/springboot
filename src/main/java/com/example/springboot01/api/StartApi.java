@@ -3,11 +3,8 @@ package com.example.springboot01.api;
 import com.example.springboot01.config.MicroServiceUrl;
 import com.example.springboot01.domain.User;
 import com.example.springboot01.utils.response.CommonResult;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -62,4 +59,25 @@ public class StartApi {
     }
 
 
+    @GetMapping("/getPath/{sss}/{dfsdf}")
+    public CommonResult getPathVariable(@PathVariable("sss") String path,@PathVariable("dfsdf") String ds){
+        return CommonResult.ok().setMsg("入参1为："+path+",入参2为："+ds);
+    }
+
+    @GetMapping("/getPath")
+    public CommonResult getPathParam(@RequestParam("id") String idd,@RequestParam("name") String namee){
+        return CommonResult.ok().setMsg("RequestParam:"+idd +","+namee);
+    }
+
+    //form表单提交是键值对的数据格式，例如a=1&b=2的形式。mvc自动进行参数绑定
+    @PostMapping("/getUsers1")
+    public CommonResult getUser(User user){
+        return CommonResult.ok().setResult(user);
+    }
+
+    //json提交是字符串的形式，需要@ResponseBody注解对json进行解析
+    @PostMapping("/getUser2")
+    public CommonResult getUser2(@RequestBody User user){
+        return CommonResult.ok().setResult(user);
+    }
 }
