@@ -28,7 +28,7 @@
             </encoder>
         </appender>
 
-        <logger name="com.example.springboot01.api" level="WARN" />
+        <logger name="com.example.springboot01.api" level="INFO" />
         <root level="INFO">
             <appender-ref ref="CONSOLE" />
             <appender-ref ref="FILE" />

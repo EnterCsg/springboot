@@ -1,4 +1,4 @@
-logging:
-  config: classpath:logback.xml
-  level:
-    com.example.springboot01.api: trace
+#开发和生成环境切换
+spring:
+  profiles:
+    active: dev

@@ -1,17 +1,27 @@
 package com.example.springboot01.api;
 
+import com.example.springboot01.config.MicroServiceUrl;
 import com.example.springboot01.domain.User;
 import com.example.springboot01.utils.response.CommonResult;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/start")
 public class StartApi {
+
+    @Value("${url.orderUrl}")
+    private String orderUrl;
+
+    @Resource
+    private MicroServiceUrl microServiceUrl;
 
     @GetMapping("/getUser")
     public CommonResult getUser(){
@@ -40,4 +50,16 @@ public class StartApi {
     public CommonResult getError(){
         return CommonResult.error().setMsg("失败！");
     }
+
+    @GetMapping("/getUrl")
+    public CommonResult getUrl(){
+        return CommonResult.ok().setMsg("订单服务的地址："+orderUrl);
+    }
+
+    @GetMapping("/getUrlByAnnotation")
+    public CommonResult getUrlByAnnotation(){
+        return CommonResult.ok().setMsg("订单服务的地址："+microServiceUrl.getOrderUrl()+",用户服务的地址："+microServiceUrl.getUserUrl());
+    }
+
+
 }
