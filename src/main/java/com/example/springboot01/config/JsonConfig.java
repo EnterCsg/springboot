@@ -12,6 +12,11 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import java.io.IOException;
 
+/**
+ * 作用于@ResponseBody,将返回的json数据的null转为空字符串
+ *
+ * */
+
 @Configuration
 public class JsonConfig {
 

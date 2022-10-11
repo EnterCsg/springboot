@@ -3,6 +3,11 @@ package com.example.springboot01.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * 获取yml文件前缀为url的地址
+ *
+ * */
+
 @Component
 @ConfigurationProperties(prefix = "url")
 public class MicroServiceUrl {

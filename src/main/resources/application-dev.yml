@@ -9,3 +9,8 @@ server:
 url:
   orderUrl: http://localhost:8081
   userUrl: http://localhost:8082
+
+#关闭thymeleaf缓存
+spring:
+  thymeleaf:
+    cache: false
