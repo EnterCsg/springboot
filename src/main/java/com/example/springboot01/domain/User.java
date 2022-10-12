@@ -2,9 +2,19 @@ package com.example.springboot01.domain;
 
 public class User {
 
+    public Long id;
+
     public int age;
 
     public String name;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public int getAge() {
         return age;
