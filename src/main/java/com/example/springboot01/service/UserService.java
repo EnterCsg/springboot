@@ -6,4 +6,5 @@ public interface UserService {
 
     public User selectUserById(Long id);
 
+    User selectUserById2(Long id);
 }
