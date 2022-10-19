@@ -23,6 +23,7 @@ public class MyApplicationListener implements ApplicationListener<ContextRefresh
         UserService userService = applicationContext.getBean(UserService.class);
         User user = userService.selectUserById(1L);
         ServletContext application = applicationContext.getBean(ServletContext.class);
+        System.out.println("添加全局变量");
         application.setAttribute("user",user);
     }
 }
