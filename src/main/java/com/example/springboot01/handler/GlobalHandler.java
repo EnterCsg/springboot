@@ -65,7 +65,7 @@ public class GlobalHandler {
 
     /**
      * 拦截异常（空指针你异常)
-     * @param ex HttpMessageNotReadableException
+     * @param ex NullPointerException
      * @return
      */
     @ExceptionHandler(NullPointerException.class)
