@@ -64,7 +64,7 @@ public class GlobalHandler {
     }
 
     /**
-     * 拦截异常（缺少请求参数异常)
+     * 拦截异常（空指针你异常)
      * @param ex HttpMessageNotReadableException
      * @return
      */
