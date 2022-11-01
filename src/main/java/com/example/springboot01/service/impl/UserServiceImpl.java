@@ -1,5 +1,6 @@
 package com.example.springboot01.service.impl;
 
+import com.example.springboot01.annotation.AopTest;
 import com.example.springboot01.domain.User;
 import com.example.springboot01.mapper.UserMapper;
 import com.example.springboot01.service.UserService;
@@ -18,7 +19,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @AopTest
     public User selectUserById2(Long id) {
         return userMapper.selectUserById2(id);
     }
+
+
 }
