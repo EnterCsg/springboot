@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,8 @@ public class StartApi {
     private MicroServiceUrl microServiceUrl;
 
     @GetMapping("/getUser")
-    public CommonResult getUser(){
+    public CommonResult getUser(HttpServletRequest request){
+        request.getSession();
         User user = new User();
         user.setAge(12);
         user.setName("张三");
