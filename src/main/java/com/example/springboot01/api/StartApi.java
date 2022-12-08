@@ -2,6 +2,7 @@ package com.example.springboot01.api;
 
 import com.example.springboot01.config.MicroServiceUrl;
 import com.example.springboot01.domain.User;
+import com.example.springboot01.exception.ProcessFailException;
 import com.example.springboot01.utils.response.CommonResult;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.ModelMap;
@@ -93,6 +94,9 @@ public class StartApi {
     @GetMapping("/nullPoint")
     public CommonResult getPoint(){
         User user = null;
+        if (user ==null ){
+            throw new ProcessFailException("空的说法第三方");
+        }
         return CommonResult.ok().setResult(user.age);
     }
 

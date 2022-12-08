@@ -1,5 +1,6 @@
 package com.example.springboot01.handler;
 
+import com.example.springboot01.exception.ProcessFailException;
 import com.example.springboot01.utils.response.CommonResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,6 +75,20 @@ public class GlobalHandler {
             NullPointerException ex) {
         log.error("空指针异常，{}", ex.getMessage());
         return CommonResult.error().setMsg("空指针异常！");
+    }
+
+
+    /**
+     * 拦截异常
+     * @param ex ProcessFailException
+     * @return
+     */
+    @ExceptionHandler(ProcessFailException.class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    public CommonResult processFailException(
+            ProcessFailException ex) {
+        log.error("异常，{}", ex.getMessage());
+        return CommonResult.error().setMsg("异常！");
     }
 
     /**
